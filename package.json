@@ -54,7 +54,6 @@
     "prettier": "^2.5.0",
     "prop-types": "^15.7.2",
     "react-redux": "^7.2.6",
-    "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9"
   },
   "lint-staged": {
