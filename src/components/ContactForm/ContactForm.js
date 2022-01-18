@@ -23,8 +23,6 @@ function ContactForm({ onClose }) {
   const handleSubmit = event => {
     event.preventDefault();
 
-    onSubmit({ name, number });
-
     const names = items.map(contact => contact.name);
 
     if (names.includes(name)) {
