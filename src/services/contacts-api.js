@@ -3,6 +3,11 @@ import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:4040';
 
 export async function fetchContacts() {
-  const responce = await axios.get(`/contacts`);
-  return responce.data;
+  try {
+    const responce = await axios.get(`/contacts`).then(res => res.data);
+    console.log(responce);
+    return responce;
+  } catch (error) {
+    console.log(error);
+  }
 }

@@ -2,7 +2,9 @@ import { useEffect } from 'react';
 
 import ContactItem from 'components/ContactItem';
 import { useSelector, useDispatch } from 'react-redux';
-import { contactsOperations } from '../../redux/contacts';
+import { contactsOperations } from 'redux/contacts';
+import { contactsSelectors } from 'redux/contacts';
+
 import PropTypes from 'prop-types';
 
 function ContactList() {
@@ -10,16 +12,8 @@ function ContactList() {
 
   useEffect(() => dispatch(contactsOperations.fetchContacts()), [dispatch]);
 
-  const getVisibleContacts = (allContacts, value) => {
-    const normalizedFilter = value.toLowerCase();
-
-    return allContacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter),
-    );
-  };
-
-  const contacts = useSelector(({ contacts: { items, filter } }) =>
-    getVisibleContacts(items, filter),
+  const contacts = useSelector(state =>
+    contactsSelectors.getVisibleContacts(state),
   );
 
   return (

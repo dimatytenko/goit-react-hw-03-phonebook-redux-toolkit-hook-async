@@ -13,7 +13,7 @@ const items = createReducer([], {
   [fetchContacts.fulfilled]: (_, action) => action.payload,
   // [actions.addContact]: (state, { payload }) => [...state, payload],
   // [actions.deleteContact]: (state, { payload }) =>
-  //   state.filter(contact => contact.name !== payload),
+  // state.filter(contact => contact.name !== payload),
 });
 
 const isLoading = createReducer(false, {
